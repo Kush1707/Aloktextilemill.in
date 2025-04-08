@@ -1,0 +1,66 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function Home() {
+  return (
+    <main className="bg-white text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-cover bg-center h-screen flex items-center justify-center text-center px-4" style={{ backgroundImage: 'url("/hero.jpg")' }}>
+        <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+          Leading Digital Textile Printing Solutions for Modern Fabric Innovation
+        </h1>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 px-4 md:px-20 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+          {["Cotton", "Silk", "Linen", "Polyester", "Hosiery"].map(fabric => (
+            <Card key={fabric} className="shadow-md">
+              <CardContent className="p-6 font-semibold text-lg">{fabric}</CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 px-4 md:px-20">
+        <h2 className="text-3xl font-bold text-center mb-12">Gallery</h2>
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Factory Images</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {[1, 2, 3, 4].map(i => (
+              <img key={i} src={`/factory/factory${i}.jpg`} alt={`Factory ${i}`} className="rounded-xl shadow" />
+            ))}
+          </div>
+          <h3 className="text-xl font-semibold mb-4">Printed Designs</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map(i => (
+              <img key={i} src={`/designs/design${i}.jpg`} alt={`Design ${i}`} className="rounded-xl shadow" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 px-4 md:px-20 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-6">About Us</h2>
+        <p className="text-center max-w-3xl mx-auto">
+          Alok Textile Mill has been at the forefront of digital textile printing for 8 years, combining advanced technology with creative design to deliver premium quality prints across a variety of fabrics.
+        </p>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-4 md:px-20">
+        <h2 className="text-3xl font-bold text-center mb-6">Contact Us / Get a Quote</h2>
+        <form className="max-w-2xl mx-auto grid gap-4">
+          <input type="text" placeholder="Name" className="border p-3 rounded-xl" required />
+          <input type="email" placeholder="Email" className="border p-3 rounded-xl" required />
+          <textarea placeholder="Your Message or Quote Request" className="border p-3 rounded-xl" rows="5" required></textarea>
+          <Button type="submit" className="w-full">Submit</Button>
+        </form>
+      </section>
+    </main>
+  );
+}
